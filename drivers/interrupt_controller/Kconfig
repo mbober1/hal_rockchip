@@ -1,0 +1,8 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+config INTC_ROCKCHIP_INTMUX
+	bool "Rockchip INTMUX second-level interrupt controller"
+	default y
+	depends on DT_HAS_ROCKCHIP_INTMUX_ENABLED
+	depends on MULTI_LEVEL_INTERRUPTS && 2ND_LEVEL_INTERRUPTS
