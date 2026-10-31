@@ -1,0 +1,46 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+title: Rockchip RK3506 PWM controller
+
+maintainers:
+  - Marcin Bober <mbober1@gmail.com>
+
+description: |
+  Clocked from clk_pwm_osc (24 MHz). Each channel is a child node so that
+  channels can use different interrupt parents (NVIC or INTMUX). Capture
+  needs the channel interrupt; INTMUX channels need &intmux enabled.
+
+compatible: "rockchip,rk3506-pwm"
+
+include: [pwm-controller.yaml, base.yaml, pinctrl-device.yaml]
+
+properties:
+  reg:
+    required: true
+
+  "#address-cells":
+    const: 1
+
+  "#size-cells":
+    const: 0
+
+  "#pwm-cells":
+    const: 3
+
+pwm-cells:
+  - channel
+  - period
+  - flags
+
+child-binding:
+  description: PWM channel
+  properties:
+    reg:
+      type: array
+      required: true
+      description: Channel index
+
+    interrupts:
+      type: array
+      required: true

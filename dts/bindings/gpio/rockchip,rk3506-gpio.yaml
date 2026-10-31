@@ -1,0 +1,24 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+title: Rockchip RK3506 GPIO
+
+maintainers:
+  - Marcin Bober <mbober1@gmail.com>
+
+compatible: "rockchip,rk3506-gpio"
+
+include: [gpio-controller.yaml, base.yaml]
+
+properties:
+  reg:
+    required: true
+
+  bank-id:
+    type: int
+    required: true
+    description: HAL bank index (eGPIO_bankId), e.g. 1 for GPIO1.
+
+gpio-cells:
+  - pin
+  - flags

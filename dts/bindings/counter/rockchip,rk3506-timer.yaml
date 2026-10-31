@@ -1,0 +1,21 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+title: Rockchip RK3506 Timer
+
+maintainers:
+  - Marcin Bober <mbober1@gmail.com>
+
+description: |
+  Rockchip RK3506 64-bit timer channel (TIMER0-11), exposed through the
+  Zephyr counter API and clocked from XIN_OSC0 (24 MHz). Without an
+  interrupt the counter works but alarms and top-value callbacks are
+  unavailable.
+
+compatible: "rockchip,rk3506-timer"
+
+include: base.yaml
+
+properties:
+  reg:
+    required: true
