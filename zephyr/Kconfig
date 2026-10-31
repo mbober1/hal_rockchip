@@ -1,0 +1,13 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+rsource "drivers/adc/Kconfig"
+rsource "drivers/counter/Kconfig"
+rsource "drivers/gpio/Kconfig"
+rsource "drivers/interrupt_controller/Kconfig"
+rsource "drivers/mbox/Kconfig"
+rsource "drivers/misc/Kconfig"
+rsource "drivers/pinctrl/Kconfig"
+rsource "drivers/pwm/Kconfig"
+rsource "drivers/serial/Kconfig"
+rsource "drivers/watchdog/Kconfig"
