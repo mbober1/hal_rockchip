@@ -2,6 +2,10 @@ This module provides the required glue code (Zephyr abstraction) and `.dtsi` fil
 
 You must manually download a compatible SDK if you wish to use it.
 
+## Supported SoCs
+
+- RK3506 (Cortex-M0 coprocessor)
+
 ## Already in tree (Zephyr glue present)
 
 - ADC: [adc_rk3506.c](../modules/hal/rockchip/zephyr/drivers/adc/adc_rk3506.c)
@@ -33,3 +37,6 @@ You must manually download a compatible SDK if you wish to use it.
 | Low | Audio ACODEC / DSM ADC | 0xFF4F8000 / 0xFF4B0000 | [hal_acodec_rk3506.c](../modules/hal/rockchip/lib/hal/src/codec/hal_acodec_rk3506.c), [hal_acdcdig_dsm.c](../modules/hal/rockchip/lib/hal/src/hal_acdcdig_dsm.c) | RK3506-specific |
 | Low | FLEXBUS (parallel GPIO) | 0xFF880000 | [hal_flexbus_rk3506.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_rk3506.c), [hal_flexbus_adc.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_adc.c), [hal_flexbus_dac.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_dac.c), [hal_flexbus_spi.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_spi.c) | RK3506-specific |
 | Low | NPOR | | [hal_npor_rk3506.c](../modules/hal/rockchip/lib/hal/src/npor/hal_npor_rk3506.c) | Power-on reset |
+
+
+## License
