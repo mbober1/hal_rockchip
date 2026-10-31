@@ -3,8 +3,8 @@
 
 title: Rockchip RK3506 Successive Approximation Register (SAR) A/D Converter
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
+description: |
+  Rockchip RK3506 Successive Approximation Register
 
 compatible: "rockchip,rk3506-saradc"
 

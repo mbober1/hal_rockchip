@@ -3,9 +3,6 @@
 
 title: Rockchip RK3506 Mailbox
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
-
 description: |
   One group per 4 KB instance. The Cortex-M0 is
   the BB side: it receives on A2B and sends on B2A.

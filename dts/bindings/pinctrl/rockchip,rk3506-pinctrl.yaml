@@ -3,9 +3,6 @@
 
 title: Rockchip RK3506 pin controller
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
-
 description: |
   Pin function selection through the per-bank IOMUX or the RMIO matrix.
   Pin values are built with RK3506_PINMUX() or RK3506_RMIO() from

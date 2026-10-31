@@ -3,9 +3,6 @@
 
 title: Rockchip RK3506 INTMUX Channel
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
-
 description: |
   One RK3506 INTMUX group of 32 inputs. The interrupt specifier is the
   line within the group (INTMUX source ID modulo 32).

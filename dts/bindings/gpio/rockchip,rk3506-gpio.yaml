@@ -3,8 +3,8 @@
 
 title: Rockchip RK3506 GPIO
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
+description: |
+  Rockchip RK3506 GPIO
 
 compatible: "rockchip,rk3506-gpio"
 

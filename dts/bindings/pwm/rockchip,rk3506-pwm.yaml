@@ -3,9 +3,6 @@
 
 title: Rockchip RK3506 PWM controller
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
-
 description: |
   Clocked from clk_pwm_osc (24 MHz). Each channel is a child node so that
   channels can use different interrupt parents (NVIC or INTMUX). Capture

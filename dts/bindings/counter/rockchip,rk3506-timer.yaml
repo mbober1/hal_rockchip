@@ -3,9 +3,6 @@
 
 title: Rockchip RK3506 Timer
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
-
 description: |
   Rockchip RK3506 64-bit timer channel (TIMER0-11), exposed through the
   Zephyr counter API and clocked from XIN_OSC0 (24 MHz). Without an

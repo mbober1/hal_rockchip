@@ -1,7 +1,7 @@
 name: hal_rockchip
 build:
-  cmake: zephyr
-  kconfig: zephyr/Kconfig
+  cmake: .
+  kconfig: Kconfig
   settings:
     board_root: .
     soc_root: .

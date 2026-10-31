@@ -3,9 +3,6 @@
 
 title: Rockchip RK3506 Watchdog
 
-maintainers:
-  - Marcin Bober <mbober1@gmail.com>
-
 description: |
   Clocked from XIN_OSC0 (24 MHz). Only one instance may be enabled. A timeout with
   WDT_FLAG_RESET_SOC triggers a global SoC reset, which also resets the A7.
