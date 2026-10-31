@@ -1,0 +1,16 @@
+identifier: luckfox_lyra_plus/rk3506
+name: Luckfox Lyra Plus (RK3506)
+type: mcu
+arch: arm
+ram: 32
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - counter
+  - gpio
+  - pwm
+  - serial
+  - watchdog
+vendor: luckfox

@@ -1,0 +1,6 @@
+board:
+  name: luckfox_lyra_plus
+  full_name: Luckfox Lyra Plus (RK3506 Cortex-M0)
+  vendor: luckfox
+  socs:
+    - name: rk3506
