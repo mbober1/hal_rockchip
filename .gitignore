@@ -1,0 +1,11 @@
+# editors
+.vscode
+
+# python
+__pycache__
+.venv
+.coverage
+htmlcov/
+
+# blobs
+zephyr/blobs/**/*.a
