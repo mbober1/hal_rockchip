@@ -1,0 +1,8 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+config PINCTRL_ROCKCHIP
+	bool "Rockchip pin controller driver"
+	default y
+	depends on DT_HAS_ROCKCHIP_PINCTRL_ENABLED
+	depends on PINCTRL
