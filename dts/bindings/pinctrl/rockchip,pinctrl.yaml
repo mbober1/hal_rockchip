@@ -1,20 +1,20 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 pin controller
+title: Rockchip pin controller
 
 description: |
   Pin function selection through the per-bank IOMUX or the RMIO matrix.
-  Pin values are built with RK3506_PINMUX() or RK3506_RMIO() from
-  <zephyr/dt-bindings/pinctrl/rk3506-pinctrl.h>, for example:
+  Pin values are built with RK_PINMUX() or RK_RMIO() from
+  <zephyr/dt-bindings/pinctrl/rockchip-pinctrl.h>, for example:
 
     &pinctrl {
       uart4_default: uart4_default {
         group0 {
-          pinmux = <RK3506_RMIO(1, RK_PC2, RK3506_RMIO_UART4_TX)>;
+          pinmux = <RK_RMIO(1, RK_PC2, RK_RMIO_UART4_TX)>;
         };
         group1 {
-          pinmux = <RK3506_RMIO(1, RK_PC3, RK3506_RMIO_UART4_RX)>;
+          pinmux = <RK_RMIO(1, RK_PC3, RK_RMIO_UART4_RX)>;
           bias-pull-up;
         };
       };
@@ -22,7 +22,7 @@ description: |
 
   Properties that are not given leave the hardware setting unchanged.
 
-compatible: "rockchip,rk3506-pinctrl"
+compatible: "rockchip,pinctrl"
 
 include: base.yaml
 
@@ -44,7 +44,7 @@ child-binding:
       pinmux:
         required: true
         type: array
-        description: Pins built with RK3506_PINMUX() or RK3506_RMIO().
+        description: Pins built with RK_PINMUX() or RK_RMIO().
       drive-strength:
         enum: [0, 1, 2, 3, 4, 5]
         description: Drive strength level (HAL PIN_CONFIG_DRV_LEVELn).

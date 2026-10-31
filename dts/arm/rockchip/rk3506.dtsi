@@ -1,0 +1,398 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * RK3506 Cortex-M0 coprocessor.
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	#address-cells = <1>;
+	#size-cells = <1>;
+
+	chosen {
+		zephyr,flash = &sram0;
+		zephyr,sram = &sram0;
+	};
+
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu0: cpu@0 {
+			compatible = "arm,cortex-m0";
+			reg = <0>;
+			clock-frequency = <187500000>;
+		};
+	};
+
+	sram0: memory@0 {
+		compatible = "mmio-sram";
+		reg = <0x00000000 0x8000>;
+	};
+
+	soc {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		interrupt-parent = <&nvic>;
+		ranges;
+
+		nvic: interrupt-controller@e000e100 {
+			compatible = "arm,v6m-nvic";
+			reg = <0xe000e100 0xc00>;
+			interrupt-controller;
+			#interrupt-cells = <2>;
+			arm,num-irq-priority-bits = <2>;
+		};
+
+		systick: timer@e000e010 {
+			compatible = "arm,armv6m-systick";
+			reg = <0xe000e010 0x10>;
+		};
+
+		pinctrl: pin-controller@ff910000 {
+			compatible = "rockchip,pinctrl";
+			reg = <0xff910000 0x1000>;
+		};
+
+		intmux: interrupt-controller@ff2a0000 {
+			compatible = "rockchip,intmux";
+			reg = <0xff2a0000 0x100>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+			ranges = <0x0 0xff2a0000 0x100>;
+			status = "disabled";
+
+			intmux_ch0: interrupt-controller@0 {
+				compatible = "rockchip,intmux-ch";
+				reg = <0x0 0x4>;
+				interrupts = <28 0>;
+				interrupt-controller;
+				#address-cells = <0>;
+				#interrupt-cells = <1>;
+			};
+
+			intmux_ch1: interrupt-controller@4 {
+				compatible = "rockchip,intmux-ch";
+				reg = <0x4 0x4>;
+				interrupts = <29 0>;
+				interrupt-controller;
+				#address-cells = <0>;
+				#interrupt-cells = <1>;
+			};
+
+			intmux_ch2: interrupt-controller@8 {
+				compatible = "rockchip,intmux-ch";
+				reg = <0x8 0x4>;
+				interrupts = <30 0>;
+				interrupt-controller;
+				#address-cells = <0>;
+				#interrupt-cells = <1>;
+			};
+
+			intmux_ch3: interrupt-controller@c {
+				compatible = "rockchip,intmux-ch";
+				reg = <0xc 0x4>;
+				interrupts = <31 0>;
+				interrupt-controller;
+				#address-cells = <0>;
+				#interrupt-cells = <1>;
+			};
+		};
+
+		uart0: serial@ff0a0000 {
+			compatible = "rockchip,uart";
+			reg = <0xff0a0000 0x100>;
+			status = "disabled";
+		};
+
+		uart1: serial@ff0b0000 {
+			compatible = "rockchip,uart";
+			reg = <0xff0b0000 0x100>;
+			status = "disabled";
+		};
+
+		uart2: serial@ff0c0000 {
+			compatible = "rockchip,uart";
+			reg = <0xff0c0000 0x100>;
+			status = "disabled";
+		};
+
+		uart3: serial@ff0d0000 {
+			compatible = "rockchip,uart";
+			reg = <0xff0d0000 0x100>;
+			interrupts = <12 0>;
+			status = "disabled";
+		};
+
+		uart4: serial@ff0e0000 {
+			compatible = "rockchip,uart";
+			reg = <0xff0e0000 0x100>;
+			interrupts = <13 0>;
+			status = "disabled";
+		};
+
+		uart5: serial@ff4e0000 {
+			compatible = "rockchip,uart";
+			reg = <0xff4e0000 0x100>;
+			status = "disabled";
+		};
+
+		gpio1: gpio@ff870000 {
+			compatible = "rockchip,gpio";
+			reg = <0xff870000 0x1000>;
+			bank-id = <1>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			status = "disabled";
+		};
+
+		adc: adc@ff4e8000 {
+			compatible = "rockchip,saradc";
+			reg = <0xff4e8000 0x8000>;
+			interrupts = <16 0>;
+			#io-channel-cells = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "disabled";
+		};
+
+		/* All four share M0 IRQ 22 through a GRF mux; enable only one. */
+		mbox0: mailbox@ff290000 {
+			compatible = "rockchip,mbox";
+			reg = <0xff290000 0x1000>;
+			interrupts = <22 0>;
+			#mbox-cells = <1>;
+			status = "disabled";
+		};
+
+		mbox1: mailbox@ff291000 {
+			compatible = "rockchip,mbox";
+			reg = <0xff291000 0x1000>;
+			interrupts = <22 0>;
+			#mbox-cells = <1>;
+			status = "disabled";
+		};
+
+		mbox2: mailbox@ff292000 {
+			compatible = "rockchip,mbox";
+			reg = <0xff292000 0x1000>;
+			interrupts = <22 0>;
+			#mbox-cells = <1>;
+			status = "disabled";
+		};
+
+		mbox3: mailbox@ff293000 {
+			compatible = "rockchip,mbox";
+			reg = <0xff293000 0x1000>;
+			interrupts = <22 0>;
+			#mbox-cells = <1>;
+			status = "disabled";
+		};
+
+		timer0: timer@ff250000 {
+			compatible = "rockchip,timer";
+			reg = <0xff250000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <12>;
+			status = "disabled";
+		};
+
+		timer1: timer@ff251000 {
+			compatible = "rockchip,timer";
+			reg = <0xff251000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <13>;
+			status = "disabled";
+		};
+
+		timer2: timer@ff252000 {
+			compatible = "rockchip,timer";
+			reg = <0xff252000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <14>;
+			status = "disabled";
+		};
+
+		timer3: timer@ff253000 {
+			compatible = "rockchip,timer";
+			reg = <0xff253000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <15>;
+			status = "disabled";
+		};
+
+		timer4: timer@ff254000 {
+			compatible = "rockchip,timer";
+			reg = <0xff254000 0x20>;
+			interrupts = <18 0>;
+			status = "disabled";
+		};
+
+		timer5: timer@ff255000 {
+			compatible = "rockchip,timer";
+			reg = <0xff255000 0x20>;
+			interrupts = <19 0>;
+			status = "disabled";
+		};
+
+		timer6: timer@ff258000 {
+			compatible = "rockchip,timer";
+			reg = <0xff258000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <16>;
+			status = "disabled";
+		};
+
+		timer7: timer@ff259000 {
+			compatible = "rockchip,timer";
+			reg = <0xff259000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <17>;
+			status = "disabled";
+		};
+
+		timer8: timer@ff25a000 {
+			compatible = "rockchip,timer";
+			reg = <0xff25a000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <18>;
+			status = "disabled";
+		};
+
+		timer9: timer@ff25b000 {
+			compatible = "rockchip,timer";
+			reg = <0xff25b000 0x20>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <19>;
+			status = "disabled";
+		};
+
+		timer10: timer@ff25c000 {
+			compatible = "rockchip,timer";
+			reg = <0xff25c000 0x20>;
+			interrupts = <20 0>;
+			status = "disabled";
+		};
+
+		/* NVIC 21 is shared with DSMC. */
+		timer11: timer@ff25d000 {
+			compatible = "rockchip,timer";
+			reg = <0xff25d000 0x20>;
+			interrupts = <21 0>;
+			status = "disabled";
+		};
+
+		wdt0: watchdog@ff260000 {
+			compatible = "rockchip,wdt";
+			reg = <0xff260000 0x100>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <21>;
+			status = "disabled";
+		};
+
+		wdt1: watchdog@ff268000 {
+			compatible = "rockchip,wdt";
+			reg = <0xff268000 0x100>;
+			interrupt-parent = <&intmux_ch2>;
+			interrupts = <22>;
+			status = "disabled";
+		};
+
+		pwm0: pwm@ff930000 {
+			compatible = "rockchip,pwm";
+			reg = <0xff930000 0x4000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			#pwm-cells = <3>;
+			status = "disabled";
+
+			channel@0 {
+				reg = <0>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <12>;
+			};
+
+			channel@1 {
+				reg = <1>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <13>;
+			};
+
+			channel@2 {
+				reg = <2>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <14>;
+			};
+
+			channel@3 {
+				reg = <3>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <15>;
+			};
+		};
+
+		pwm1: pwm@ff170000 {
+			compatible = "rockchip,pwm";
+			reg = <0xff170000 0x8000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			#pwm-cells = <3>;
+			status = "disabled";
+
+			channel@0 {
+				reg = <0>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <16>;
+			};
+
+			channel@1 {
+				reg = <1>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <17>;
+			};
+
+			channel@2 {
+				reg = <2>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <18>;
+			};
+
+			channel@3 {
+				reg = <3>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <19>;
+			};
+
+			channel@4 {
+				reg = <4>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <20>;
+			};
+
+			channel@5 {
+				reg = <5>;
+				interrupt-parent = <&intmux_ch0>;
+				interrupts = <21>;
+			};
+
+			channel@6 {
+				reg = <6>;
+				interrupts = <10 0>;
+			};
+
+			channel@7 {
+				reg = <7>;
+				interrupts = <11 0>;
+			};
+		};
+
+		swd: swd@ff288000 {
+			compatible = "rockchip,swd";
+			/* GRF, SGRF_PMU */
+			reg = <0xff288000 0x1000>, <0xff960000 0x1000>;
+			status = "disabled";
+		};
+	};
+};

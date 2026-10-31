@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_SERIES_RK35
+
+if DT_HAS_ROCKCHIP_INTMUX_ENABLED
+
+config MULTI_LEVEL_INTERRUPTS
+	default y
+
+config 2ND_LEVEL_INTERRUPTS
+	default y
+
+config MAX_IRQ_PER_AGGREGATOR
+	default 32
+
+config NUM_2ND_LEVEL_AGGREGATORS
+	default 4
+
+config 2ND_LVL_ISR_TBL_OFFSET
+	default 32
+
+config 2ND_LVL_INTR_00_OFFSET
+	default 28
+
+config 2ND_LVL_INTR_01_OFFSET
+	default 29
+
+config 2ND_LVL_INTR_02_OFFSET
+	default 30
+
+config 2ND_LVL_INTR_03_OFFSET
+	default 31
+
+endif # DT_HAS_ROCKCHIP_INTMUX_ENABLED
+
+config NUM_IRQS
+	default 160 if DT_HAS_ROCKCHIP_INTMUX_ENABLED
+	default 32
+
+config SYS_CLOCK_HW_CYCLES_PER_SEC
+	default $(dt_node_int_prop_int,/cpus/cpu@0,clock-frequency)
+
+endif # SOC_SERIES_RK35

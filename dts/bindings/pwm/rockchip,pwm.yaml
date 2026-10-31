@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 PWM controller
+title: Rockchip PWM controller
 
 description: |
   Clocked from clk_pwm_osc (24 MHz). Each channel is a child node so that
   channels can use different interrupt parents (NVIC or INTMUX). Capture
   needs the channel interrupt; INTMUX channels need &intmux enabled.
 
-compatible: "rockchip,rk3506-pwm"
+compatible: "rockchip,pwm"
 
 include: [pwm-controller.yaml, base.yaml, pinctrl-device.yaml]
 

@@ -1,0 +1,6 @@
+family:
+  - name: rockchip
+    series:
+      - name: rk35
+        socs:
+          - name: rk3506

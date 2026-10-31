@@ -1,12 +1,12 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 UART
+title: Rockchip UART
 
 description: |
-  Rockchip RK3506 UART
+  Rockchip UART
 
-compatible: "rockchip,rk3506-uart"
+compatible: "rockchip,uart"
 
 include: [uart-controller.yaml, pinctrl-device.yaml]
 

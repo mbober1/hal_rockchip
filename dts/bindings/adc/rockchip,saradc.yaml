@@ -1,12 +1,12 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 Successive Approximation Register (SAR) A/D Converter
+title: Rockchip Successive Approximation Register (SAR) A/D Converter
 
 description: |
-  Rockchip RK3506 Successive Approximation Register
+  Rockchip Successive Approximation Register
 
-compatible: "rockchip,rk3506-saradc"
+compatible: "rockchip,saradc"
 
 include: adc-controller.yaml
 

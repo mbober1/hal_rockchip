@@ -1,12 +1,12 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 GPIO
+title: Rockchip GPIO
 
 description: |
-  Rockchip RK3506 GPIO
+  Rockchip GPIO controller
 
-compatible: "rockchip,rk3506-gpio"
+compatible: "rockchip,gpio"
 
 include: [gpio-controller.yaml, base.yaml]
 

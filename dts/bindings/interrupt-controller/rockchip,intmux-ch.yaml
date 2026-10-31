@@ -1,13 +1,13 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 INTMUX Channel
+title: Rockchip INTMUX Channel
 
 description: |
-  One RK3506 INTMUX group of 32 inputs. The interrupt specifier is the
+  One Rockchip INTMUX group of 32 inputs. The interrupt specifier is the
   line within the group (INTMUX source ID modulo 32).
 
-compatible: "rockchip,rk3506-intmux-ch"
+compatible: "rockchip,intmux-ch"
 
 include: [interrupt-controller.yaml, base.yaml]
 

@@ -1,14 +1,14 @@
 # Copyright (c) 2026 Marcin Bober
 # SPDX-License-Identifier: Apache-2.0
 
-title: Rockchip RK3506 Mailbox
+title: Rockchip Mailbox
 
 description: |
   One group per 4 KB instance. The Cortex-M0 is
   the BB side: it receives on A2B and sends on B2A.
   Only one instance can be routed to M0 IRQ 22.
 
-compatible: "rockchip,rk3506-mbox"
+compatible: "rockchip,mbox"
 
 include: [base.yaml, mailbox-controller.yaml]
 

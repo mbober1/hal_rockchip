@@ -4,16 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <zephyr/dt-bindings/pinctrl/rk3506-pinctrl.h>
+#include <zephyr/dt-bindings/pinctrl/rockchip-pinctrl.h>
 
 &pinctrl {
 	uart4_default: uart4_default {
 		group0 {
-			pinmux = <RK3506_RMIO(1, RK_PC2, RK3506_RMIO_UART4_TX)>;
+			pinmux = <RK_RMIO(1, RK_PC2, RK_RMIO_UART4_TX)>;
 		};
 
 		group1 {
-			pinmux = <RK3506_RMIO(1, RK_PC3, RK3506_RMIO_UART4_RX)>;
+			pinmux = <RK_RMIO(1, RK_PC3, RK_RMIO_UART4_RX)>;
 			bias-pull-up;
 		};
 	};

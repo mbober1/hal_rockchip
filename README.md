@@ -8,16 +8,16 @@ You must manually download a compatible SDK if you wish to use it.
 
 ## Already in tree (Zephyr glue present)
 
-- ADC: [adc_rk3506.c](../modules/hal/rockchip/zephyr/drivers/adc/adc_rk3506.c)
-- Counter: [counter_rk3506.c](../modules/hal/rockchip/zephyr/drivers/counter/counter_rk3506.c)
-- INTMUX: [intc_rk3506_intmux.c](../modules/hal/rockchip/zephyr/drivers/interrupt_controller/intc_rk3506_intmux.c)
-- GPIO: [gpio_rk3506.c](../modules/hal/rockchip/zephyr/drivers/gpio/gpio_rk3506.c)
-- MBOX: [mbox_rk3506.c](../modules/hal/rockchip/zephyr/drivers/mbox/mbox_rk3506.c)
-- PWM: [pwm_rk3506.c](../modules/hal/rockchip/zephyr/drivers/pwm/pwm_rk3506.c)
-- Pinctrl: [pinctrl_rk3506.c](../modules/hal/rockchip/zephyr/drivers/pinctrl/pinctrl_rk3506.c)
-- SWD: [swd_rk3506.c](../modules/hal/rockchip/zephyr/drivers/misc/swd_rk3506.c)
-- UART: [uart_rk3506.c](../modules/hal/rockchip/zephyr/drivers/serial/uart_rk3506.c)
-- Watchdog: [wdt_rk3506.c](../modules/hal/rockchip/zephyr/drivers/watchdog/wdt_rk3506.c)
+- ADC: [adc_rockchip.c](../modules/hal/rockchip/zephyr/drivers/adc/adc_rockchip.c)
+- Counter: [counter_rockchip.c](../modules/hal/rockchip/zephyr/drivers/counter/counter_rockchip.c)
+- INTMUX: [intc_rockchip_intmux.c](../modules/hal/rockchip/zephyr/drivers/interrupt_controller/intc_rockchip_intmux.c)
+- GPIO: [gpio_rockchip.c](../modules/hal/rockchip/zephyr/drivers/gpio/gpio_rockchip.c)
+- MBOX: [mbox_rockchip.c](../modules/hal/rockchip/zephyr/drivers/mbox/mbox_rockchip.c)
+- PWM: [pwm_rockchip.c](../modules/hal/rockchip/zephyr/drivers/pwm/pwm_rockchip.c)
+- Pinctrl: [pinctrl_rockchip.c](../modules/hal/rockchip/zephyr/drivers/pinctrl/pinctrl_rockchip.c)
+- SWD: [swd_rockchip.c](../modules/hal/rockchip/zephyr/drivers/misc/swd_rockchip.c)
+- UART: [uart_rockchip.c](../modules/hal/rockchip/zephyr/drivers/serial/uart_rockchip.c)
+- Watchdog: [wdt_rockchip.c](../modules/hal/rockchip/zephyr/drivers/watchdog/wdt_rockchip.c)
 
 ## HAL present, no Zephyr driver yet
 
