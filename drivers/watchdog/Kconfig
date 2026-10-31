@@ -1,0 +1,8 @@
+# Copyright (c) 2026 Marcin Bober
+# SPDX-License-Identifier: Apache-2.0
+
+config WDT_ROCKCHIP
+	bool "Rockchip watchdog driver"
+	default y
+	depends on DT_HAS_ROCKCHIP_WDT_ENABLED
+	depends on WATCHDOG
