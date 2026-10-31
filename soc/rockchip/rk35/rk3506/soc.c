@@ -1,4 +1,8 @@
-/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * Copyright (c) 2026 Marcin Bober
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 #include <zephyr/kernel.h>
 #include <zephyr/irq.h>

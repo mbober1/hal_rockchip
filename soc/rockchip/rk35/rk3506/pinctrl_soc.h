@@ -1,4 +1,8 @@
-/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * Copyright (c) 2026 Marcin Bober
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 #ifndef ZEPHYR_SOC_ROCKCHIP_ROCKCHIP_PINCTRL_SOC_H_
 #define ZEPHYR_SOC_ROCKCHIP_ROCKCHIP_PINCTRL_SOC_H_

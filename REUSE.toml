@@ -1,0 +1,41 @@
+version = 1
+
+# ===========================================================================
+# This module's own code (Apache-2.0).
+# Files that cannot carry an SPDX tag (YAML / Markdown / dotfiles).
+# ===========================================================================
+[[annotations]]
+path = [
+    ".gitattributes",
+    ".gitignore",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "docs/**/*.md",
+    "zephyr/module.yml",
+    "boards/**/board.yml",
+    "boards/**/*.yaml",
+]
+SPDX-FileCopyrightText = "Copyright (c) 2026 Marcin Bober"
+SPDX-License-Identifier = "Apache-2.0"
+
+# ===========================================================================
+# Vendored Rockchip SDK/HAL (rockchip/).
+#
+# Only the RK3506 build closure is tracked (see docs/hal_vendor_usage.md and
+# .gitignore). Those files are imported unmodified from the Rockchip SDK and
+# keep their upstream licenses; they declare their license in-file, except for
+# the license texts and the one header listed below. Do not relicense them.
+# ===========================================================================
+
+# --- Rockchip BSD-3-Clause --------------------------------------------------
+[[annotations]]
+path = "rockchip/LICENSE"
+SPDX-FileCopyrightText = "Copyright (c) 2020 Rockchip Electronics Co., Ltd."
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# --- Arm CMSIS Apache-2.0 (license text only; no CMSIS source is tracked) ---
+[[annotations]]
+path = "rockchip/lib/CMSIS/LICENSE.txt"
+SPDX-FileCopyrightText = "Copyright (c) 2009-2023 Arm Limited. All rights reserved."
+SPDX-License-Identifier = "Apache-2.0"

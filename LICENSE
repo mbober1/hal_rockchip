@@ -1,0 +1,38 @@
+Copyright (c) 2026 Marcin Bober
+
+This Zephyr module is distributed under the Apache License, Version 2.0.
+A verbatim copy of the license text is provided in LICENSES/Apache-2.0.txt.
+
+Files whose license is not declared otherwise (Zephyr glue code, Kconfig,
+devicetree bindings, board definitions, soc layer, drivers and the top-level
+build files) are licensed under Apache-2.0.
+
+-------------------------------------------------------------------------------
+VENDORED THIRD-PARTY CODE — rockchip/
+-------------------------------------------------------------------------------
+
+The directory rockchip/ is a verbatim import of the Rockchip SDK/HAL and is NOT
+covered by the Apache-2.0 license of this module. It keeps its original
+licenses:
+
+  rockchip/LICENSE
+  rockchip/lib/hal/**
+  rockchip/lib/bsp/**                            BSD-3-Clause
+                                                 Copyright (c) 2020 Rockchip Electronics Co., Ltd.
+
+  rockchip/lib/CMSIS/**
+  rockchip/lib/CMSIS/LICENSE.txt                 Apache-2.0
+                                                 Copyright (c) 2009-2023 Arm Limited
+
+  rockchip/lib/CMSIS/RISCV/Include/syntacore/
+      riscv_csr_encoding.h                       BSD-3-Clause
+                                                 Copyright (c) 2012-2015, The Regents of the
+                                                 University of California (Regents)
+
+Neither the Apache-2.0 license of this module nor the Apache-2.0 license of the
+Arm CMSIS files may be applied to the BSD-3-Clause files, and vice versa.
+Do not remove existing copyright notices or SPDX tags from third-party files.
+
+See THIRD_PARTY_NOTICES.md for the complete inventory, the provenance of the
+imported SDK, and the compliance obligations that apply when redistributing
+this module in source or binary form.

@@ -9,3 +9,47 @@ htmlcov/
 
 # blobs
 zephyr/blobs/**/*.a
+
+# Arm CMSIS cores/DSP/RISC-V: Zephyr's `cmsis` module provides these.
+rockchip/lib/CMSIS/
+!rockchip/lib/CMSIS/Device/RK3506/Include
+
+# HAL sources: only the files listed in CMakeLists.txt are compiled.
+rockchip/lib/hal/src/**/*.c
+rockchip/lib/hal/src/**/*.S
+!rockchip/lib/hal/src/hal_gpio.c
+!rockchip/lib/hal/src/hal_mbox.c
+!rockchip/lib/hal/src/hal_pwm.c
+!rockchip/lib/hal/src/hal_saradc.c
+!rockchip/lib/hal/src/hal_uart.c
+!rockchip/lib/hal/src/hal_wdt.c
+!rockchip/lib/hal/src/cru/hal_cru.c
+!rockchip/lib/hal/src/cru/hal_cru_rk3506.c
+!rockchip/lib/hal/src/pinctrl/hal_pinctrl.c
+!rockchip/lib/hal/src/pinctrl/hal_pinctrl_rk3506.c
+
+# HAL headers: only those reachable from hal_base.h -> hal_driver.h with the
+# modules enabled in soc/rockchip/rk35/rk3506/hal_conf.h.
+rockchip/lib/hal/inc/*.h
+rockchip/lib/hal/inc/*.template
+!rockchip/lib/hal/inc/hal_base.h
+!rockchip/lib/hal/inc/hal_cache.h
+!rockchip/lib/hal/inc/hal_cru.h
+!rockchip/lib/hal/inc/hal_debug.h
+!rockchip/lib/hal/inc/hal_def.h
+!rockchip/lib/hal/inc/hal_dma.h
+!rockchip/lib/hal/inc/hal_driver.h
+!rockchip/lib/hal/inc/hal_gpio.h
+!rockchip/lib/hal/inc/hal_list.h
+!rockchip/lib/hal/inc/hal_mbox.h
+!rockchip/lib/hal/inc/hal_nvic.h
+!rockchip/lib/hal/inc/hal_pinctrl.h
+!rockchip/lib/hal/inc/hal_pm.h
+!rockchip/lib/hal/inc/hal_pwm.h
+!rockchip/lib/hal/inc/hal_pwr.h
+!rockchip/lib/hal/inc/hal_saradc.h
+!rockchip/lib/hal/inc/hal_uart.h
+!rockchip/lib/hal/inc/hal_wdt.h
+
+rockchip/lib/bsp/*
+!rockchip/lib/bsp/RK3506/

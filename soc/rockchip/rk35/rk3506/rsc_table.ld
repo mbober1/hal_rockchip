@@ -1,4 +1,8 @@
-/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * Copyright (c) 2026 Marcin Bober
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 SECTION_PROLOGUE(.resource_table,, SUBALIGN(8))
 {

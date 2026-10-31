@@ -1,0 +1,4 @@
+# The Rockchip SDK/HAL is vendored third-party code. Keep it out of language
+# statistics and collapse it in diffs/reviews.
+rockchip/** linguist-vendored
+rockchip/** -diff
