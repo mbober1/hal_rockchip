@@ -19,30 +19,6 @@ The Rockchip SDK/HAL needed by the drivers is vendored in [rockchip/](rockchip/)
 - UART: [uart_rockchip.c](../modules/hal/rockchip/zephyr/drivers/serial/uart_rockchip.c)
 - Watchdog: [wdt_rockchip.c](../modules/hal/rockchip/zephyr/drivers/watchdog/wdt_rockchip.c)
 
-## HAL present, no Zephyr driver yet
-
-These HAL implementations are present in the local working tree but git-ignored
-(they are outside the current build closure). Re-enable them as described in
-[docs/hal_vendor_usage.md](docs/hal_vendor_usage.md) before writing the glue.
-
-| Priority | Peripheral | Base (CMSIS) | HAL source | Notes |
-|---|---|---|---|---|
-| High | I2C (x3) | 0xFF040000-0xFF060000 | [hal_i2c.c](../modules/hal/rockchip/lib/hal/src/hal_i2c.c) | Zephyr `i2c` API |
-| High | SPI (SPI0/1) | 0xFF120000 / 0xFF130000 | [hal_spi.c](../modules/hal/rockchip/lib/hal/src/hal_spi.c) | Zephyr `spi` API. SPI2 via [hal_spi2apb.c](../modules/hal/rockchip/lib/hal/src/hal_spi2apb.c) / [hal_spi2ahb.c](../modules/hal/rockchip/lib/hal/src/hal_spi2ahb.c) |
-| High | Random (TRNG0/1) | 0xFF710000 / 0xFFFE0000 | [hal_trng.c](../modules/hal/rockchip/lib/hal/src/hal_trng.c) | RK3506-guarded. Zephyr `entropy` API |
-| Medium | TSADC (temperature) | 0xFF650000 | [hal_tsadc.c](../modules/hal/rockchip/lib/hal/src/hal_tsadc.c) | RK3506 branch exists. Zephyr `sensor` API |
-| Medium | Crypto (AES/HASH/PKA) | 0xFF700000 | [hal_crypto.c](../modules/hal/rockchip/lib/hal/src/crypto/hal_crypto.c), [hal_crypto_pka.c](../modules/hal/rockchip/lib/hal/src/crypto/hal_crypto_pka.c) | Zephyr `crypto` API. Check secure access from M0 first |
-| Medium | OTP / eFuse | | [hal_otp.c](../modules/hal/rockchip/lib/hal/src/hal_otp.c), [hal_efuse.c](../modules/hal/rockchip/lib/hal/src/hal_efuse.c) | Read-only use. Secure OTP may be blocked |
-| Medium | Hardware spinlock | 0xFF240000-0xFF243000 | [hal_hwspinlock.c](../modules/hal/rockchip/lib/hal/src/hal_hwspinlock.c) | Needed if A7 and M0 share peripherals |
-| Medium | DMA (DMA0/1) | 0xFF000000 / 0xFF008000 | [hal_dwdma.c](../modules/hal/rockchip/lib/hal/src/hal_dwdma.c) | Zephyr `dma` API |
-| Low | CAN FD (x2) | 0xFF320000 / 0xFF330000 | [hal_canfd.c](../modules/hal/rockchip/lib/hal/src/hal_canfd.c) | RK3506 branch exists. Zephyr `can` API |
-| Low | SAI (x5), I2S | 0xFF300000 and others | [hal_sai.c](../modules/hal/rockchip/lib/hal/src/hal_sai.c), [hal_i2s.c](../modules/hal/rockchip/lib/hal/src/hal_i2s.c) | Audio. Zephyr `i2s` API |
-| Low | PDM (8 ch) | 0xFF380000 | [hal_pdm.c](../modules/hal/rockchip/lib/hal/src/hal_pdm.c) | Audio capture |
-| Low | Audio ACODEC / DSM ADC | 0xFF4F8000 / 0xFF4B0000 | [hal_acodec_rk3506.c](../modules/hal/rockchip/lib/hal/src/codec/hal_acodec_rk3506.c), [hal_acdcdig_dsm.c](../modules/hal/rockchip/lib/hal/src/hal_acdcdig_dsm.c) | RK3506-specific |
-| Low | FLEXBUS (parallel GPIO) | 0xFF880000 | [hal_flexbus_rk3506.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_rk3506.c), [hal_flexbus_adc.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_adc.c), [hal_flexbus_dac.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_dac.c), [hal_flexbus_spi.c](../modules/hal/rockchip/lib/hal/src/flexbus/hal_flexbus_spi.c) | RK3506-specific |
-| Low | NPOR | | [hal_npor_rk3506.c](../modules/hal/rockchip/lib/hal/src/npor/hal_npor_rk3506.c) | Power-on reset |
-
-
 ## License
 
 This module is multi-licensed; the applicable license depends on the file.
@@ -68,10 +44,3 @@ cannot carry an SPDX tag (YAML, Markdown, linker/scatter templates) are mapped i
 [REUSE.toml](REUSE.toml).
 
 The module is [REUSE](https://reuse.software/)-compliant — run `reuse lint` to verify.
-
-### Redistribution requirements (short version)
-
-- **Source distribution**: keep all copyright notices and SPDX tags, ship `LICENSES/` and `rockchip/LICENSE`.
-- **Binary distribution** (e.g. `zephyr.elf` or a release image): reproduce the BSD-3-Clause copyright notice, the list of conditions and the disclaimer in the documentation or other materials shipped with it — use `THIRD_PARTY_NOTICES.md`.
-- **No endorsement**: the names "Rockchip", "Arm", "Cortex", "CMSIS" and the names of the copyright holders must not be used to endorse or promote a derived product without prior written permission.
-- **Trademarks** are not licensed; refer to the silicon vendors for trademark usage.
